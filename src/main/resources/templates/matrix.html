@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix Page</title>
+    <style>
+        table {
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .plus {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Matrix</h1>
+<table>
+    <tbody>
+    <tr th:each="row, rowIndex : ${matrix}">
+        <td th:each="cell, colIndex : ${row}">
+            <span th:class="${cell == '*' ? 'plus' : ''}" th:text="${cell}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Answer:</h2>
+<pre th:text="${answer}"></pre>
+</body>
+</html>
